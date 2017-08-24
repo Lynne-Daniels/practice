@@ -1,6 +1,7 @@
 var Queue = function() {
   var someInstance = {};
   var count = 0;
+  var first = 0;
 
   // Use an object with numeric keys to store values
   var storage = {};
@@ -9,15 +10,20 @@ var Queue = function() {
 
   someInstance.enqueue = function(value) {
     count ++;
+    first ++;
     storage[count] = value;
-    console.log(storage[count]);
+    console.log(storage, first, count);
   };
 
   someInstance.dequeue = function() {
-    if (count > 0) {
+    if ((Object.keys(storage).length) > 0) {
+      console.log((Object.keys(storage).length), 'length');
+      console.log(storage[first] , ' is zero');
+      let output = storage[first];
+      delete storage[first];
       count --;
-      console.log(storage[1] , ' is zero');
-      return storage[1];
+      first ++;
+      return output;
     }
   };
 
