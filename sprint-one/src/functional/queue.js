@@ -11,13 +11,10 @@ var Queue = function() {
   someInstance.enqueue = function(value) {
     storage[count] = value;
     count ++;
-    console.log(storage, first, count);
   };
 
   someInstance.dequeue = function() {
-    if ((Object.keys(storage).length) > 0) {
-      console.log((Object.keys(storage).length), 'length');
-      console.log(storage[first] , ' is zero');
+    if ((count - first) > 0) {
       let output = storage[first];
       delete storage[first];
       first ++;
