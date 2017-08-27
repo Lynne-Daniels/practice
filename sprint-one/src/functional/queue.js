@@ -1,7 +1,7 @@
 var Queue = function() {
   var someInstance = {};
-  var count = 0;
-  var first = 0;
+  var count = 0;  //number of items ever stored
+  var first = 0;  //position of item at the front of the line
 
   // Use an object with numeric keys to store values
   var storage = {};
@@ -9,9 +9,8 @@ var Queue = function() {
   // Implement the methods below
 
   someInstance.enqueue = function(value) {
-    count ++;
-    first ++;
     storage[count] = value;
+    count ++;
     console.log(storage, first, count);
   };
 
@@ -21,14 +20,13 @@ var Queue = function() {
       console.log(storage[first] , ' is zero');
       let output = storage[first];
       delete storage[first];
-      count --;
       first ++;
       return output;
     }
   };
 
   someInstance.size = function() {
-    return count;
+    return count - first;
   };
 
   return someInstance;
