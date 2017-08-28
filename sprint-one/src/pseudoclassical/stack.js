@@ -13,4 +13,11 @@ Stack.prototype.push = function(val) {
   this.storage[this.top] = val;
   this.top ++;
 };
-
+Stack.prototype.pop = function() {
+  if (this.top > 0) {
+    var temp = this.storage[this.top - 1];
+    delete this.storage[this.top -1];
+    this.top --;
+    return temp;
+  }
+};
