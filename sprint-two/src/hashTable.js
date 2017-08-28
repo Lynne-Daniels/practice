@@ -23,4 +23,7 @@ HashTable.prototype.remove = function(k) {
  * Complexity: What is the time complexity of the above functions?
  */
 
-
+var hash = new HashTable;
+console.log(hash);
+hash._storage.set(3, 'works?'); // stores at key = 3
+console.log(hash._storage.get(3)); // 'works?'
