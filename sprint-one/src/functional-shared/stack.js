@@ -5,7 +5,7 @@ var extend = function (obj1, obj2) {
     }
   }
 };
-
+var stackMethods = {};
 var Stack = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
@@ -18,35 +18,27 @@ var Stack = function() {
   return theStack;
 };
 
-
-
-var stackMethods = {};
-
 // has push, pop, and size methods
 
 // check for data and return the top of the stack (highest index)
 stackMethods.pop = function() {
+  // try {
   if (this._size > 0) {
+    var tempItem = this.stackData[this._size - 1];
+    delete this.stackData[this._size - 1];
     this._size --;
-    return this.stackData[this._size + 1];
+
+    return tempItem;
   }
-  return;
 };
 
 // put a new value on the top of the stack
 stackMethods.push = function(value) {
-  this.stackData[this._size] = value;
+  this.stackData[this['_size']] = value;
   this._size ++;
 };
 
 // return the size of the stack
 stackMethods.size = function() {
-  return this._size;
+  return this['_size'];
 };
-
-var theStack = Stack();
-
-console.log(theStack);
-console.log(theStack);
-console.log(theStack.size);
-
